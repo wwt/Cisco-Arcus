@@ -1,1 +1,56 @@
-[{"name":"EMC ViPR","steps":[{"sort_order":1,"name":"Auth","apply_template":false,"request_option":{"url":"login","http_method":"get","body":"","basic_auth":true,"headers":[]},"step_variables":[{"sort_order":1,"name":"token","source_type":"header","value":"X-SDS-AUTH-TOKEN"}]},{"sort_order":2,"name":"Query","apply_template":true,"request_option":{"url":"","http_method":"get","body":"","basic_auth":true,"headers":[{"name":"X-SDS-AUTH-TOKEN","value":"${token}"}]},"step_variables":[]},{"sort_order":3,"name":"Logout","apply_template":false,"request_option":{"url":"logout","http_method":"get","body":"","basic_auth":false,"headers":[{"name":"X-SDS-AUTH-TOKEN","value":"${token}"}]},"step_variables":[]}]}]
+[{
+		"name": "EMC ViPR",
+		"steps": [{
+				"sort_order": 1,
+				"name": "Auth",
+				"apply_template": false,
+				"request_option": {
+					"url": "login",
+					"http_method": "get",
+					"body": "",
+					"basic_auth": true,
+					"headers": []
+				},
+				"step_variables": [{
+						"sort_order": 1,
+						"name": "token",
+						"source_type": "header",
+						"value": "X-SDS-AUTH-TOKEN"
+					}
+				]
+			}, {
+				"sort_order": 2,
+				"name": "Query",
+				"apply_template": true,
+				"request_option": {
+					"url": "",
+					"http_method": "get",
+					"body": "",
+					"basic_auth": true,
+					"headers": [{
+							"name": "X-SDS-AUTH-TOKEN",
+							"value": "${token}"
+						}
+					]
+				},
+				"step_variables": []
+			}, {
+				"sort_order": 3,
+				"name": "Logout",
+				"apply_template": false,
+				"request_option": {
+					"url": "logout",
+					"http_method": "get",
+					"body": "",
+					"basic_auth": false,
+					"headers": [{
+							"name": "X-SDS-AUTH-TOKEN",
+							"value": "${token}"
+						}
+					]
+				},
+				"step_variables": []
+			}
+		]
+	}
+]

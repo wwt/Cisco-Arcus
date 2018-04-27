@@ -1,1 +1,108 @@
-[{"name":"vSphere","steps":[{"sort_order":1,"name":"Login","apply_template":false,"request_option":{"url":"","http_method":"post","body":"\u003c?xml version=\"1.0\"?\u003e\r\n\u003csoap:Envelope\r\nxmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\nsoap:encodingStyle=\"http://www.w3.org/2003/05/soap-encoding\"\u003e\r\n  \u003csoap:Body\u003e\r\n    \u003cvim25:Login xmlns:vim25=\"http://example.com\"\u003e\r\n      \u003cvim25:_this type=\"SessionManager\"\u003eSessionManager\u003c/vim25:_this\u003e\r\n      \u003cvim25:userName\u003e${xml(username)}\u003c/vim25:userName\u003e\r\n      \u003cvim25:password\u003e${xml(password)}\u003c/vim25:password\u003e\r\n    \u003c/vim25:Login\u003e\r\n\u003c/soap:Body\u003e\r\n\u003c/soap:Envelope\u003e\r\n","basic_auth":false,"headers":[{"name":"soapAction","value":"urn:vim25/6.0"},{"name":"Content-Type","value":"text/xml"}]},"step_variables":[{"sort_order":1,"name":"cookie","source_type":"header","value":"Set-Cookie"}]},{"sort_order":2,"name":"Service Content","apply_template":false,"request_option":{"url":"","http_method":"post","body":"\u003c?xml version=\"1.0\"?\u003e\r\n\u003csoap:Envelope\r\nxmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\nsoap:encodingStyle=\"http://www.w3.org/2003/05/soap-encoding\"\u003e\r\n  \u003csoap:Body\u003e\r\n    \u003cvim25:RetrieveServiceContent xmlns:vim25=\"http://example.com\"\u003e\r\n      \u003cvim25:_this type=\"ServiceInstance\"\u003eServiceInstance\u003c/vim25:_this\u003e\r\n    \u003c/vim25:RetrieveServiceContent\u003e\r\n\u003c/soap:Body\u003e\r\n\u003c/soap:Envelope\u003e\r\n","basic_auth":false,"headers":[{"name":"soapAction","value":"urn:vim25/6.0"},{"name":"Content-Type","value":"text/xml"},{"name":"Cookie","value":"${cookie}"}]},"step_variables":[{"sort_order":1,"name":"rootFolder","source_type":"xpath","value":"//*[name()=\"rootFolder\"]/text()"},{"sort_order":2,"name":"propertyCollector","source_type":"xpath","value":"//*[name()=\"propertyCollector\"]/text()"}]},{"sort_order":3,"name":"Query","apply_template":true,"request_option":{"url":"","http_method":"post","body":"","basic_auth":false,"headers":[{"name":"soapAction","value":"urn:vim25/6.0"},{"name":"Content-Type","value":"text/xml"},{"name":"Cookie","value":"${cookie}"}]},"step_variables":[]},{"sort_order":4,"name":"Logout","apply_template":false,"request_option":{"url":"","http_method":"post","body":"\u003c?xml version=\"1.0\"?\u003e\r\n\u003csoap:Envelope\r\nxmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\nsoap:encodingStyle=\"http://www.w3.org/2003/05/soap-encoding\"\u003e\r\n  \u003csoap:Body\u003e\r\n    \u003cvim25:Logout xmlns:vim25=\"http://example.com\"\u003e\r\n      \u003cvim25:_this type=\"SessionManager\"\u003eSessionManager\u003c/vim25:_this\u003e\r\n    \u003c/vim25:Logout\u003e\r\n\u003c/soap:Body\u003e\r\n\u003c/soap:Envelope\u003e\r\n","basic_auth":false,"headers":[{"name":"soapAction","value":"urn:vim25/6.0"},{"name":"Content-Type","value":"text/xml"},{"name":"Cookie","value":"${cookie}"}]},"step_variables":[]}]}]
+[{
+		"name": "vSphere",
+		"steps": [{
+				"sort_order": 1,
+				"name": "Login",
+				"apply_template": false,
+				"request_option": {
+					"url": "",
+					"http_method": "post",
+					"body": "\u003c?xml version=\"1.0\"?\u003e\r\n\u003csoap:Envelope\r\nxmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\nsoap:encodingStyle=\"http://www.w3.org/2003/05/soap-encoding\"\u003e\r\n  \u003csoap:Body\u003e\r\n    \u003cvim25:Login xmlns:vim25=\"http://example.com\"\u003e\r\n      \u003cvim25:_this type=\"SessionManager\"\u003eSessionManager\u003c/vim25:_this\u003e\r\n      \u003cvim25:userName\u003e${xml(username)}\u003c/vim25:userName\u003e\r\n      \u003cvim25:password\u003e${xml(password)}\u003c/vim25:password\u003e\r\n    \u003c/vim25:Login\u003e\r\n\u003c/soap:Body\u003e\r\n\u003c/soap:Envelope\u003e\r\n",
+					"basic_auth": false,
+					"headers": [{
+							"name": "soapAction",
+							"value": "urn:vim25/6.0"
+						}, {
+							"name": "Content-Type",
+							"value": "text/xml"
+						}
+					]
+				},
+				"step_variables": [{
+						"sort_order": 1,
+						"name": "cookie",
+						"source_type": "header",
+						"value": "Set-Cookie"
+					}
+				]
+			}, {
+				"sort_order": 2,
+				"name": "Service Content",
+				"apply_template": false,
+				"request_option": {
+					"url": "",
+					"http_method": "post",
+					"body": "\u003c?xml version=\"1.0\"?\u003e\r\n\u003csoap:Envelope\r\nxmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\nsoap:encodingStyle=\"http://www.w3.org/2003/05/soap-encoding\"\u003e\r\n  \u003csoap:Body\u003e\r\n    \u003cvim25:RetrieveServiceContent xmlns:vim25=\"http://example.com\"\u003e\r\n      \u003cvim25:_this type=\"ServiceInstance\"\u003eServiceInstance\u003c/vim25:_this\u003e\r\n    \u003c/vim25:RetrieveServiceContent\u003e\r\n\u003c/soap:Body\u003e\r\n\u003c/soap:Envelope\u003e\r\n",
+					"basic_auth": false,
+					"headers": [{
+							"name": "soapAction",
+							"value": "urn:vim25/6.0"
+						}, {
+							"name": "Content-Type",
+							"value": "text/xml"
+						}, {
+							"name": "Cookie",
+							"value": "${cookie}"
+						}
+					]
+				},
+				"step_variables": [{
+						"sort_order": 1,
+						"name": "rootFolder",
+						"source_type": "xpath",
+						"value": "//*[name()=\"rootFolder\"]/text()"
+					}, {
+						"sort_order": 2,
+						"name": "propertyCollector",
+						"source_type": "xpath",
+						"value": "//*[name()=\"propertyCollector\"]/text()"
+					}
+				]
+			}, {
+				"sort_order": 3,
+				"name": "Query",
+				"apply_template": true,
+				"request_option": {
+					"url": "",
+					"http_method": "post",
+					"body": "",
+					"basic_auth": false,
+					"headers": [{
+							"name": "soapAction",
+							"value": "urn:vim25/6.0"
+						}, {
+							"name": "Content-Type",
+							"value": "text/xml"
+						}, {
+							"name": "Cookie",
+							"value": "${cookie}"
+						}
+					]
+				},
+				"step_variables": []
+			}, {
+				"sort_order": 4,
+				"name": "Logout",
+				"apply_template": false,
+				"request_option": {
+					"url": "",
+					"http_method": "post",
+					"body": "\u003c?xml version=\"1.0\"?\u003e\r\n\u003csoap:Envelope\r\nxmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\nsoap:encodingStyle=\"http://www.w3.org/2003/05/soap-encoding\"\u003e\r\n  \u003csoap:Body\u003e\r\n    \u003cvim25:Logout xmlns:vim25=\"http://example.com\"\u003e\r\n      \u003cvim25:_this type=\"SessionManager\"\u003eSessionManager\u003c/vim25:_this\u003e\r\n    \u003c/vim25:Logout\u003e\r\n\u003c/soap:Body\u003e\r\n\u003c/soap:Envelope\u003e\r\n",
+					"basic_auth": false,
+					"headers": [{
+							"name": "soapAction",
+							"value": "urn:vim25/6.0"
+						}, {
+							"name": "Content-Type",
+							"value": "text/xml"
+						}, {
+							"name": "Cookie",
+							"value": "${cookie}"
+						}
+					]
+				},
+				"step_variables": []
+			}
+		]
+	}
+]

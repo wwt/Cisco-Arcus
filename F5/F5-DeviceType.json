@@ -1,1 +1,18 @@
-[{"name":"F5","steps":[{"sort_order":1,"name":"Query","apply_template":true,"request_option":{"url":"","http_method":"get","body":"","basic_auth":true,"headers":[]},"step_variables":[]}]}]
+[{
+		"name": "F5",
+		"steps": [{
+				"sort_order": 1,
+				"name": "Query",
+				"apply_template": true,
+				"request_option": {
+					"url": "",
+					"http_method": "get",
+					"body": "",
+					"basic_auth": true,
+					"headers": []
+				},
+				"step_variables": []
+			}
+		]
+	}
+]

@@ -1,0 +1,56 @@
+[{
+		"name": "ACI",
+		"steps": [{
+				"sort_order": 1,
+				"name": "Auth",
+				"apply_template": false,
+				"request_option": {
+					"url": "api/aaaLogin.json",
+					"http_method": "post",
+					"body": "{\n  \"aaaUser\": {\n    \"attributes\": {\n      \"name\": \"${json(username)}\",\n      \"pwd\": \"${json(password)}\"\n    }\n  }\n}\n",
+					"basic_auth": null,
+					"headers": []
+				},
+				"step_variables": [{
+						"sort_order": 1,
+						"name": "cookie",
+						"source_type": "header",
+						"value": "Set-Cookie"
+					}
+				]
+			}, {
+				"sort_order": 2,
+				"name": "Query",
+				"apply_template": true,
+				"request_option": {
+					"url": "",
+					"http_method": "",
+					"body": "",
+					"basic_auth": true,
+					"headers": [{
+							"name": "Cookie",
+							"value": "${cookie}"
+						}
+					]
+				},
+				"step_variables": []
+			}, {
+				"sort_order": 3,
+				"name": "Logoff",
+				"apply_template": false,
+				"request_option": {
+					"url": "api/aaaLogout.json",
+					"http_method": "post",
+					"body": "{\n  \"aaaUser\": {\n    \"attributes\": {\n      \"name\": \"${json(username)}\"\n    }\n  }\n}\n",
+					"basic_auth": null,
+					"headers": [{
+							"name": "Cookie",
+							"value": "${cookie}"
+						}
+					]
+				},
+				"step_variables": []
+			}
+		]
+	}
+]

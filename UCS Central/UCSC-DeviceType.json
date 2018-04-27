@@ -1,0 +1,48 @@
+[{
+		"name": "UCS Central",
+		"steps": [{
+				"sort_order": 1,
+				"name": "Auth",
+				"apply_template": false,
+				"request_option": {
+					"url": "",
+					"http_method": "post",
+					"body": "\u003caaaLogin inName=\"${xml(username)}\" inPassword=\"${xml(password)}\" /\u003e",
+					"basic_auth": false,
+					"headers": []
+				},
+				"step_variables": [{
+						"sort_order": 1,
+						"name": "cookie",
+						"source_type": "xpath",
+						"value": "/aaaLogin/@outCookie"
+					}
+				]
+			}, {
+				"sort_order": 2,
+				"name": "Query",
+				"apply_template": true,
+				"request_option": {
+					"url": "",
+					"http_method": "get",
+					"body": "",
+					"basic_auth": false,
+					"headers": []
+				},
+				"step_variables": []
+			}, {
+				"sort_order": 3,
+				"name": "Logoff",
+				"apply_template": false,
+				"request_option": {
+					"url": "",
+					"http_method": "post",
+					"body": "\u003caaaLogout inCookie=\"${xml(cookie)}\" /\u003e",
+					"basic_auth": false,
+					"headers": []
+				},
+				"step_variables": []
+			}
+		]
+	}
+]

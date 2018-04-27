@@ -1,0 +1,18 @@
+[{
+		"name": "CloudCenter",
+		"steps": [{
+				"sort_order": 1,
+				"name": "Query",
+				"apply_template": true,
+				"request_option": {
+					"url": "",
+					"http_method": "get",
+					"body": "",
+					"basic_auth": false,
+					"headers": []
+				},
+				"step_variables": []
+			}
+		]
+	}
+]

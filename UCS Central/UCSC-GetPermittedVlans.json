@@ -1,0 +1,13 @@
+[{
+		"name": "UCS Central Permitted VLANs",
+		"description": "Gather list of Permitted VLANs from UCS Central",
+		"transformation": "\u003c?xml version=\"1.0\" encoding=\"ISO-8859-1\"?\u003e\r\n\u003cxsl:stylesheet version=\"1.0\" xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\"\u003e\r\n  \u003cxsl:template match=\"/\"\u003e\r\n    \u003croot\u003e\r\n      \u003cxsl:for-each select=\"configResolveClasses/outConfigs/fabricVlan\"\u003e\r\n        \u003cxsl:sort select=\"@name\"/\u003e\r\n        \u003cresults\u003e\r\n          \u003cdata\u003e\u003cxsl:value-of select=\"@dn\"/\u003e\u003c/data\u003e\r\n          \u003clabel\u003e\u003cxsl:value-of select=\"@name\"/\u003e\u003c/label\u003e\r\n        \u003c/results\u003e\r\n      \u003c/xsl:for-each\u003e\r\n    \u003c/root\u003e\r\n  \u003c/xsl:template\u003e\r\n\u003c/xsl:stylesheet\u003e\r\n",
+		"device_type": "UCS Central",
+		"request_option": {
+			"url": "",
+			"http_method": "post",
+			"body": "\u003cconfigResolveClasses cookie=\"${xml(cookie)}\" inHierarchical=\"false\"\u003e\r\n  \u003cinIds\u003e\r\n    \u003cId value=\"fabricVlan\" /\u003e\r\n  \u003c/inIds\u003e\r\n\u003c/configResolveClasses\u003e\r\n",
+			"headers": []
+		}
+	}
+]
